@@ -1,0 +1,22 @@
+html, body{
+    padding: 0%;
+    margin: 0%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#root{
+    height: 600px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sub{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
