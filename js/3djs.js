@@ -36,7 +36,7 @@ async function loading(){
         parent = newDiv;
         createWalls(parent, "5px", "rgb(" + firstColor.r + ", " + firstColor.g + ", " + firstColor.b + ")")
         l = x;
-        await sleep(100);
+        await sleep(300);
     }
     await sleep(300)
     show()
