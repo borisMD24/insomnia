@@ -1,6 +1,6 @@
-let k = 2;
+let k = 20;
 let l = parseInt(window.getComputedStyle(document.getElementById('primary')).width.replace('px',''));
-let n = 200;
+let n = 25;
 let parent = document.getElementById('primary');
 let firstColor = {
   r : 129,
@@ -27,29 +27,65 @@ async function loading(){
         let newDiv = document.createElement("div");
         newDiv.style.width = x + 'px';
         newDiv.style.height = x + 'px';
-        newDiv.style.transform = "rotate(" + alpha + "deg) perspective(50000px) translateZ(0.2px)";
+        newDiv.style.transform = "rotate(" + alpha + "deg) perspective(50000px) translateZ(15px)";
         
-            newDiv.style.backgroundColor = "rgb(" + firstColor.r + ", " + firstColor.g + ", " + firstColor.b + ")";
-            
             firstColor.r = Math.round(firstColor.r - secondColor.r);
             firstColor.g = Math.round(firstColor.g - secondColor.g);
             firstColor.b = Math.round(firstColor.b - secondColor.b);
-        parent.innerText = "";
         parent.appendChild(newDiv);
-        newDiv.innerText = i;
         parent = newDiv;
+        createWalls(parent, "5px", "rgb(" + firstColor.r + ", " + firstColor.g + ", " + firstColor.b + ")")
         l = x;
-        await sleep(40);
+        await sleep(100);
     }
+    await sleep(300)
     show()
+}
+
+function createWalls(el, thickness, color){
+  let div = document.createElement("div");
+  el.style.backgroundColor = color;
+  div = el.appendChild(div);
+  div.classList.add("north");
+  div.style.backgroundColor = color;
+  div.innerText = "overkill AF"
+  
+  div = document.createElement("div");
+  el.style.backgroundColor = color;
+  div = el.appendChild(div);
+  div.classList.add("south");
+  div.style.backgroundColor = color;
+  
+  div = document.createElement("div");
+  el.style.backgroundColor = color;
+  div = el.appendChild(div);
+  div.classList.add("west");
+  div.style.backgroundColor = color;
+  
+  
+  div = document.createElement("div");
+  el.style.backgroundColor = color;
+  div = el.appendChild(div);
+  div.classList.add("est");
+  div.style.backgroundColor = color;
+  
+  return 0;
 }
 
 async function show(){
   t = document.getElementById("primary")
   while(true){
-    t.style.transform = "rotateY(89deg)"
+    t.style.transform = "rotateY(100deg) translateZ(50px)"
     await sleep(10000)
-    t.style.transform = "rotateY(-89deg)"
+    t.style.transform = "rotateY(-100deg) translateZ(50px)"
+    await sleep(10000)
+    t.style.transform = "rotateX(100deg) translateZ(50px)"
+    await sleep(10000)
+    t.style.transform = "rotateX(-100deg) translateZ(50px)"
+    await sleep(10000)
+    t.style.transform = "rotateX(100deg) rotateY(-100deg) translateZ(50px)"
+    await sleep(10000)
+    t.style.transform = "rotateX(-100deg) rotateY(100deg) translateZ(50px)"
     await sleep(10000)
   }
 }

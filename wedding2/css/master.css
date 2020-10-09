@@ -6,6 +6,7 @@
         transform-origin: center center;
         transform-style:preserve-3d;
         position: relative;
+        border: solid rgba(0, 0, 0, 0.1) 1px;
     }
     body{
         height: 100vh;
@@ -20,10 +21,69 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgb(129, 236, 236);
+        background-color:black;
         transform-style:preserve-3d;
     }
-
+    .wrapper{
+        transform: translateZ(500px);
+        transform-style:preserve-3d;
+        border: none;
+    }
     #primary{
-        transition-duration: 3s;
+        transition-duration: 10s;
+        color: white;
+        border: none;
+    }
+
+    .north{
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        width: 100%;
+        height: 15px;
+        transform-origin: bottom center;
+        transform: rotateX(90deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .south{
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        height: 15px;
+        transform-origin: top center;
+        transform: rotateX(-90deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .west{
+        position: absolute;
+        top: 0;
+        width: 15px;
+        height: 100%;
+        transform-origin: bottom left;
+        transform: rotateY(90deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        left: 100%;
+    }
+    .est{
+        position: absolute;
+        bottom: 0;
+        width: 15px;
+        height: 100%;
+        transform-origin: top left;
+        transform: rotateY(90deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        left: 0;
     }
