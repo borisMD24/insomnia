@@ -25,6 +25,10 @@ async function loading(){
         let alpha = radToDeg(Math.acos((l-k) / x));
         rotate += alpha;
         let newDiv = document.createElement("div");
+        parent.appendChild(newDiv);
+        newDiv.classList.add("child")
+        await sleep(400);
+
         newDiv.style.width = x + 'px';
         newDiv.style.height = x + 'px';
         newDiv.style.transform = "rotate(" + alpha + "deg) perspective(50000px) translateZ(15px)";
@@ -32,11 +36,9 @@ async function loading(){
             firstColor.r = Math.round(firstColor.r - secondColor.r);
             firstColor.g = Math.round(firstColor.g - secondColor.g);
             firstColor.b = Math.round(firstColor.b - secondColor.b);
-        parent.appendChild(newDiv);
         parent = newDiv;
         createWalls(parent, "5px", "rgb(" + firstColor.r + ", " + firstColor.g + ", " + firstColor.b + ")")
         l = x;
-        await sleep(300);
     }
     await sleep(300)
     show()
@@ -105,3 +107,4 @@ function commonDifference(){
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+loading()
