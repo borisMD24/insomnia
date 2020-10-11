@@ -57,12 +57,14 @@ function createWalls(el, thickness, color){
   div = el.appendChild(div);
   div.classList.add("south");
   div.style.backgroundColor = color;
+  div.innerText = "demo technique"
   
   div = document.createElement("div");
   el.style.backgroundColor = color;
   div = el.appendChild(div);
   div.classList.add("west");
   div.style.backgroundColor = color;
+  div.innerText = "that rocks"
   
   
   div = document.createElement("div");
